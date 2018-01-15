@@ -1,0 +1,247 @@
+.bb8-body
+  height: 150px
+  width: 150px
+  background-color: white
+  transition: background-color 0.3s ease-in-out
+  border-radius: 50%
+  overflow: hidden
+  animation: rotation 0.7s infinite cubic-bezier(0.3, 0.7, 1.0, 1.0)
+  box-shadow: 0 0 10px rgba(0,0,0,.5), inset 0 0 20px rgba(0,0,0,.4)
+  border: 1px solid black
+
+.toTheLeft
+  .bb8-body
+    animation: rotationBack 0.7s infinite cubic-bezier(0.3, 0.7, 1.0, 1.0)
+  .bb8-head-wrapper
+    transform: rotate3d(0, 0, 1, -15deg)
+    right: 60px
+    top: -45px
+  .bb8-head-1
+    left: 43px
+    top: -70px
+    transform: rotate3d(0,0,1, -20deg)
+  .bb8-head-2
+    left: 33px
+    top: -58px
+    transform: rotate3d(0,0,1, -20deg)
+  .bb8-head-shadow
+    transform: rotate3d(0,0,1, -15deg)
+    top: 5px
+    right: 60px
+
+
+.rotationStop
+  animation-play-state: paused
+
+.bb8-head-shadow
+  height: 20px
+  width: 75px
+  background-color: rgba(0,0,0,.2)
+  border-radius: 50%
+  position: absolute
+  z-index: 1
+  right: 5px
+  top: 5px
+  transform: rotate3d(0,0,1, 35deg)
+
+.bb8-circles
+  height: 90px
+  width: 90px
+  border-radius: 50%
+  background-color: $orange
+  position: relative
+  border: 1px solid black
+  &::before
+    border: 1px solid black
+    position: absolute
+    background-color: white
+    height: 70px
+    width: 70px
+    left: 10px
+    top: 10px
+    content: ""
+    border-radius: 50%
+    transition: background-color 0.3s ease-in-out
+
+.bb8-circles_1
+  margin-left: -10px
+  margin-top: -50px
+
+.bb8-circles_2
+  margin-left: 70px
+  margin-top: 0px
+  height: 70px
+  width: 70px
+  &::before
+    height: 50px
+    width: 50px
+
+.bb8-circles_3
+  margin-left: 10px
+  margin-top: 0px
+
+.bb8-dark
+  .bb8-circles
+    border: 1px solid #ccc
+    &::before
+      background-color: lighten(black, 10%)
+      border: 1px solid #ccc
+  .bb8-head
+    background-color: lighten(black, 10%)
+    border: 2px solid #ccc
+  .bb8-head-wrapper
+    border-bottom: 2px solid #ccc
+  .bb8-body
+    border: 2px solid #ccc
+    box-shadow: 0 0 10px rgba(0,0,0,.9)
+    background-color: lighten(black, 10%)!important
+  .bb8-eye
+    &::after
+      background-color: lighten($red, 10%)
+      border: none
+  .bb8-circles
+    background-color: darken($orange, 10%)
+    border: none
+  .bb8-head-cheeks
+    background-color: darken($orange, 10%)
+    &::before
+      background-color: darken($orange, 10%)
+
+@keyframes rotation
+		from
+				transform: rotate(0deg)
+		to
+				transform: rotate(359deg)
+@keyframes rotationBack
+		from
+				transform: rotate(359deg)
+		to
+				transform: rotate(0deg)
+
+.bb8-wrapper
+  top: 250px
+  position: fixed
+  left: calc(50% - 150px/2)
+
+.bb8-head-wrapper
+  position: absolute
+  max-height: 60px
+  overflow: hidden
+  top: -40px
+  right: -20px
+  border-bottom: 2px solid black
+  z-index: 2
+  transform: rotate3d(0, 0, 1, 35deg)
+  border-radius: 25%
+
+
+.bb8-head
+  height: 90px
+  width: 90px
+  border-radius: 50%
+  background-color: white
+  transition: background-color 0.37 ease-in-out
+  border:  1px solid black
+  position: relative
+  overflow: hidden
+  box-shadow: inset 0 0 10px rgba(0,0,0,.4)
+
+.bb8-eye
+  background-color: black
+  border: 1px solid #ccc
+  height: 30px
+  width: 30px
+  border-radius: 50%
+  margin-top: 10%
+  margin-left: 30%
+  position: relative
+  &::before
+    content: ''
+    background-color: white
+    position: absolute
+    height: 10px
+    width: 10px
+    border-radius: 50%
+    top: 5px
+    right: 4px
+  &::after
+    content: ''
+    background-color: black
+    height: 10px
+    width: 10px
+    border-radius: 50%
+    border: 1px solid #ccc
+    position: absolute
+    right: -20px
+    top: 20px
+
+.bb8-head-1
+  height: 45px
+  width: 2px
+  background-color: white
+  position: absolute
+  border-radius:  30%
+  top: -48px
+  right: -5px
+  transform: rotate3d(0,0,1, 40deg)
+  &::before
+    content: ''
+    width: 2px
+    display: block
+    height: 4px
+    background-color: black
+    border-radius: 30%
+    margin-top: 0px
+  &::after
+    content: ''
+    width: 4px
+    display: block
+    height: 6px
+    background-color: black
+    border-radius: 50%
+    margin-top: 17px
+    margin-left: -1px
+.bb8-head-2
+  height: 20px
+  width: 2px
+  background-color: white
+  border-radius: 30%
+  top: -45px
+  right: 0px
+  transform: rotate3d(0,0,1, 40deg)
+  position: absolute
+
+.bb8-body-shadow
+  position: absolute
+  height: 20px
+  width: 150px
+  background-color: rgba(0,0,0, .3)
+  bottom: -10px
+  left: 0
+  z-index: -1
+  border-radius: 40%
+
+.bb8-head-cheeks
+  position: fixed
+  height: 5px
+  width: 18px
+  background-color: $orange
+  border-radius: 30%
+  top: 20px
+  left: 9px
+  &::before
+    content: ''
+    position: absolute
+    height: 5px
+    width: 22px
+    background-color: $orange
+    border-radius: 30%
+    top: 0px
+    left: 54px
+
+.bb8-head-bottom
+  height: 20px
+  width: 90px
+  position: absolute
+  bottom: 20px
+  background-color: rgba(0,0,0,.3)
